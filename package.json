@@ -1,0 +1,27 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeveBa/employee-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeveBa/employee-tracker/issues"
+  },
+  "homepage": "https://github.com/SeveBa/employee-tracker#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "env": "0.0.2",
+    "inquirer": "^8.1.1",
+    "mysql2": "^2.2.5"
+  }
+}
