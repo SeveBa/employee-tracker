@@ -10,10 +10,10 @@ VALUES
 
 INSERT INTO roles(job_title, salary, dept_id)
 VALUES
-    ('Director', 10000000, 1),
-    ('Manager', 9999999, 1),
-    ('Associate', 10, 3),
-    ('Assistant', 10, 4);
+    ('Director', 75000, 1),
+    ('Manager', 50000, 2),
+    ('Associate', 35000, 3),
+    ('Assistant', 20000, 4);
 
 INSERT INTO employees(first_name, last_name, role_id, manager_id)
 VALUES

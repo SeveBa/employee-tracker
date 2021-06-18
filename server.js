@@ -1,12 +1,12 @@
-const inquirer = require("inquirer")
-const mysql = require("mysql2")
-const db = require('./db/connection')
-const logo = require('asciiart-logo')
-
 require('dotenv').config()
 
+const inquirer = require("inquirer")
+const connection = require('./db/connection')
+const logo = require('asciiart-logo')
+const colors = require('colors')
+
 const start = () => {
-    const logoText = logo({ name: "Employee Tracker", font: 'ANSI Shadow' }).render()
+    const logoText = logo({ name: "Employee Tracker", font: 'Big Money-sw' }).render()
     console.log(logoText.green)
     inquirer.prompt({
     name: "action",
@@ -42,7 +42,7 @@ const start = () => {
 const viewAllDepartments = () => {
     const sql = `SELECT dept_name FROM departments`
 
-    db.query(sql, (err, res) => {
+    connection.query(sql, (err, res) => {
         if (err) {
             res.status(500).json({ error: err.message })
         }
@@ -54,12 +54,26 @@ const viewAllDepartments = () => {
 const viewAllRoles = () => {
     const sql = `SELECT job_title, salary, dept_id FROM roles`
 
-    db.query(sql, (err, res) => {
+    connection.query(sql, (err, res) => {
         if (err) {
             console.log(err)
         }
         console.table(res)
         end()
+    })
+}
+
+const viewAllEmployees = () => {
+    const sql = `SELECT employees.id, employees.first_name, employees.last_name, roles.job_title, departments.dept_name AS department,roles.salary,CONCAT(manager.first_name, ' ', manager.last_name)
+    AS manager FROM employees LEFT JOIN roles ON employees.role_id = roles.id
+    LEFT JOIN departments ON roles.dept_id = departments.id LEFT JOIN employees manager ON manager.id = employees.manager_id`
+
+    connection.query(sql, (err, res) => {
+        if (err) {
+            console.log(err)
+        }
+        console.table(res)
+        end()        
     })
 }
 
@@ -76,5 +90,6 @@ const end = () => {
         }
     })
 }
+
 
 start()
