@@ -39,3 +39,42 @@ const start = () => {
     })
 }
 
+const viewAllDepartments = () => {
+    const sql = `SELECT dept_name FROM departments`
+
+    db.query(sql, (err, res) => {
+        if (err) {
+            res.status(500).json({ error: err.message })
+        }
+        console.table(res)
+        end()
+    })
+}
+
+const viewAllRoles = () => {
+    const sql = `SELECT job_title, salary, dept_id FROM roles`
+
+    db.query(sql, (err, res) => {
+        if (err) {
+            console.log(err)
+        }
+        console.table(res)
+        end()
+    })
+}
+
+const end = () => {
+    inquirer.prompt({
+        name: 'end',
+        type: 'confirm',
+        message: 'Do you want to keep making changes or view the employee database?'
+    }).then(response => {
+        if (response.end === true) {
+            start()
+        } else {
+            console.log('Goodbye')
+        }
+    })
+}
+
+start()
