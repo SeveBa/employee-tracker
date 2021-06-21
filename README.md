@@ -10,5 +10,8 @@ This is a command line application that lets the user view and manage an employe
 ## Preview
 <img width="704" alt="Screen Shot 2021-06-20 at 8 24 03 PM" src="https://user-images.githubusercontent.com/4949903/122695692-cca60080-d206-11eb-94bf-ac1f49187384.png">
 
+## Walkthrough Video
+https://drive.google.com/file/d/1_3xP0bcplk782WZoU3Cv690QVr-gWKUM/view
+
 ## Contribution
 Made by Seve Barrutia
