@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const inquirer = require("inquirer")
+const table = require("console.table")
 const connection = require('./db/connection')
 const logo = require('asciiart-logo')
 const colors = require('colors')
